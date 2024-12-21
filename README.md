@@ -1,50 +1,33 @@
-# React + TypeScript + Vite
+# Trustvc demo project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- please build the trustvc project loacaly and serve it on 4873 and install the trustvc package
 
-Currently, two official plugins are available:
+### Build the trustvc project locally
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Install verdacio globally and run it
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```
+npm install -g verdaccio
+verdaccio
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+Note: Clone the trustvc project and build the fix (PR)
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+#### Publish the trustvc package locally
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
 ```
+cd <trustvc project>
+npm install
+npm run build
+npm publish --registry http://localhost:4873
+```
+
+## Build the trustvc-demo project
+
+```
+npm install
+(optional) npm install @trustvc/trustvc --registry http://localhost:4873
+npm run dev
+```
+
+> Note: Check for the console log for wrapDocument response
